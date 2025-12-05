@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Medha Sahay | Interior Designer & 3D Visualizer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Portfolio of Medha Sahay, Interior Designer and 3D Visualizer." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-badge">MS</div>
+        <div>
+          <div style="font-size:0.95rem;">Medha Sahay</div>
+          <div style="font-size:0.72rem;color:var(--muted);">Interior Designer • 3D Visualizer</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="pill-btn" onclick="scrollToSection('contact')">Available for Projects</button>
+        <button class="pill-btn primary" onclick="window.open('https://www.linkedin.com/in/medha-sahay-40166b141/','_blank')">
+          LinkedIn ↗
+        </button>
+        <button class="theme-toggle" id="themeToggle">
+          <div class="theme-toggle-thumb"></div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home">
+      <div class="container hero">
+
+        <div>
+          <div class="hero-tagline" id="hero-tagline-text">Minimalist • Stylish • Affordable Interior Design</div>
+
+          <h1 class="hero-title" id="hero-title">
+            Designing <span class="accent">thoughtful interiors</span> that connect people with their spaces.
+          </h1>
+
+          <p class="hero-subtitle" id="hero-subtitle">
+            I am <strong>Medha Sahay</strong>, an Interior Designer and 3D Visualizer with experience at Green Hab Arch, IDEAZ & Singh Enterprises.
+          </p>
+
+          <div class="hero-cta">
+            <button class="pill-btn primary" onclick="scrollToSection('portfolio')">View Portfolio</button>
+            <button class="pill-btn" onclick="scrollToSection('contact')">Contact</button>
+
+            <!-- CV button -->
+            <a class="pill-btn" href="CV-1.pdf" target="_blank">View CV (PDF)</a>
+          </div>
+        </div>
+
+        <!-- Profile Image -->
+        <div class="hero-photo-wrap">
+          <div class="hero-frame">
+            <img src="images/Medha pic.jpeg" alt="Medha Sahay">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="container">
+        <h2 class="section-heading">Portfolio</h2>
+        <div id="portfolioGrid" class="portfolio-grid"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-heading">About Me</h2>
+
+        <div class="about-layout">
+          <div class="about-card" id="about-intro">
+            <!-- Filled by JS from defaultState -->
+          </div>
+
+          <div class="info-card">
+            <h3>Education</h3>
+            <div class="timeline" id="education-timeline"></div>
+
+            <h3 class="mt-3">Work Experience</h3>
+            <div class="timeline" id="experience-timeline"></div>
+
+            <h3 class="mt-3">Skills</h3>
+            <p id="skills-text"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-heading">Contact</h2>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <p><strong>Email:</strong> <span id="contact-email"></span></p>
+            <p><strong>Phone:</strong> <span id="contact-phone"></span></p>
+            <p><strong>Location:</strong> <span id="contact-location"></span></p>
+          </div>
+
+          <div class="map-wrap">
+            <iframe id="google-map" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB5eF6Ac3i-R3R7toKbPLAQlw6Hx6rIQJc&q=Patna,India"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-row">
+      © <span id="footer-year"></span> Medha Sahay. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- DASHBOARD BUTTON -->
+  <div class="dashboard-toggle">
+    <button id="dashboardOpen">⚙️</button>
+  </div>
+
+  <!-- DASHBOARD PANEL -->
+  <aside id="dashboardPanel" class="dashboard-panel">
+    <div class="dashboard-header">
+      <h3>Dashboard</h3>
+      <button id="dashboardClose">✕</button>
+    </div>
+    <div class="dashboard-body">
+      <!-- dashboard inputs injected via script.js -->
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
