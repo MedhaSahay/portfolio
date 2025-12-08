@@ -399,7 +399,6 @@ html.dark .theme-toggle-thumb {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
-  transition: transform 0.6s ease-in-out;
 }
 
 /* Mobile: 1 card visible (full width) */
@@ -411,7 +410,6 @@ html.dark .theme-toggle-thumb {
 
   .portfolio-grid {
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    transition: transform 0.6s ease-in-out;
   }
 
   /* Slight reduction on buttons so they don't dominate */
