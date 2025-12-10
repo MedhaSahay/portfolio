@@ -15,7 +15,7 @@ window.scrollToSection = scrollToSection; // used in HTML onclick
 // Portfolio data
 // ===============================
 const portfolioItems = [
-   {
+  {
     src: "images/CFO OFFICE 1.jpg",
     title: "Conservator of Forest – Executive Office",
     description:
@@ -85,6 +85,92 @@ const portfolioItems = [
       "Elegant living room with blue upholstered seating, abstract artwork and warm accent lighting.",
     category: "Living Room",
   },
+
+  // --- Newly Added Portfolio Images (all use `description`) ---
+  {
+    src: "images/11.jpeg",
+    category: "Bedroom",
+    title: "Bedroom Execution",
+    description:
+      "A modern bedroom under execution featuring a custom bed base, full-height wardrobe, and ambient ceiling lighting opening into a balcony space.",
+  },
+  {
+    src: "images/12.jpeg",
+    category: "Bedroom",
+    title: "Contemporary Bedroom Setup",
+    description:
+      "A contemporary bedroom in progress showcasing a channel-tufted headboard, layered ceiling lighting, and modern wall-mounted storage.",
+  },
+  {
+    src: "images/13.jpeg",
+    category: "Bedroom – 3D Render",
+    title: "Bedroom Visualization",
+    description:
+      "A photorealistic 3D render of a cozy bedroom with a study corner, layered wall paneling, and a warm neutral palette.",
+  },
+  {
+    src: "images/14.jpeg",
+    category: "Bedroom – 3D Render",
+    title: "Modern Bedroom Render",
+    description:
+      "3D visualization of a modern bedroom with pendant lighting, sliding door wardrobe, and a soothing layered ceiling design.",
+  },
+  {
+    src: "images/15.jpeg",
+    category: "Bedroom – 3D Render",
+    title: "Minimalist Bedroom Render",
+    description:
+      "A rendered view of a smartly planned bedroom with minimalist wall art, dresser unit, and soft neutral styling.",
+  },
+  {
+    src: "images/16.jpeg",
+    category: "Kids Bedroom",
+    title: "Kids Room Execution",
+    description:
+      "A vibrant kids’ bedroom design with bright yellow accents, floating study unit, and soft cove-lit ceiling details.",
+  },
+  {
+    src: "images/17.jpeg",
+    category: "Kids Bedroom – 3D Render",
+    title: "Kids Room Visualization",
+    description:
+      "A cheerful kids’ bedroom 3D render featuring playful wall art, full-height wardrobe, and a dual-tone curtain setup.",
+  },
+  {
+    src: "images/18.jpeg",
+    category: "Ceiling Design – 3D Render",
+    title: "Ceiling Concept",
+    description:
+      "A unique ceiling design render with circular recessed lighting and a central fan enclosure for a soft ambient glow.",
+  },
+  {
+    src: "images/19.jpg",
+    title: "Kids Bedroom – Final Render",
+    description:
+      "A playful yet elegant kids bedroom designed with cheerful yellow accents, vertical slat panelling, an upholstered bed, and an integrated study desk with soft ambient lighting.",
+    category: "Bedroom",
+  },
+  {
+    src: "images/20.jpg",
+    title: "Kids Bedroom – Study & Bed Setup",
+    description:
+      "On-site execution of the designed study and bed wall featuring grey slatted paneling, overhead storage in yellow and white, and a premium tufted headboard.",
+    category: "Bedroom",
+  },
+  {
+    src: "images/21.jpg",
+    title: "Kids Bedroom – Wardrobe & Layout",
+    description:
+      "Progress-stage installation showing the sliding wardrobe, lighting layout, and the contrasting yellow-grey interior theme coming to life on site.",
+    category: "Bedroom",
+  },
+  {
+    src: "images/22.jpg",
+    title: "Kids Bedroom – Ceiling Design",
+    description:
+      "A signature circular recessed ceiling with warm cove lighting and an elegant curve profile, creating a cosy and visually exciting lighting effect for the kids room.",
+    category: "Ceiling Design",
+  },
 ];
 
 function getItemsPerView() {
@@ -97,9 +183,8 @@ let currentPortfolioPage = 0;
 let portfolioTotalPages = Math.ceil(portfolioItems.length / itemsPerView);
 
 // ===============================
-// Default state
+// Default state (NO localStorage)
 // ===============================
-const STORAGE_KEY = "medha-sahay-portfolio-state-v1";
 
 function createDefaultState() {
   const computed = getComputedStyle(document.documentElement);
@@ -108,13 +193,11 @@ function createDefaultState() {
     heroTitle:
       "Designing thoughtful interiors that connect people with their spaces.",
     heroSubtitle:
-    //  "I am Medha Sahay, an Interior Designer and 3D Visualizer with experience at Vaya Design, Green Hab Arch, IDEAZ & Singh Enterprises.",
-        "Turnkey interior design for homes, offices and commercial projects in Noida, Patna and Deoghar.",
-   // heroTagline: "Minimalist • Stylish • Affordable Interior Design",
+      "Turnkey interior design for homes, offices and commercial projects in Noida, Patna and Deoghar.",
+    heroTagline: "Minimalist • Stylish • Affordable Interior Design",
 
     aboutIntro:
-      //"<p>I am <strong>Medha Sahay</strong>, an interior designer passionate about building a strong connection between a space and the people who use it. I am committed to continuously learning new creative and technical skills so that every project is carefully detailed — from the furniture layout to the final render — and exceeds my clients’ expectations.</p><p>My professional journey includes working as an <strong>Interior Designer at Green Hab Arch, Patna</strong>, a <strong>3D Visualizer at IDEAZ, Bhubaneswar</strong>, and an <strong>Interior Designer at Singh Enterprises, Ranchi</strong>. Across these roles I have handled concept development, client meetings, site supervision and material selection, as well as detailed drawings and 3D visualisation.</p>",
-      "<p>I am <strong>Medha Sahay</strong>, with 5+ years of hand-on experience in interior design with expertise in residential projects. I believe in creating functional and lond losting spaces that reflect client's lifestyle, aspirations and personality. Our team works to deliver end-to-end turnkey projects from concept to execution - ensuring the entire process is seamless, transparent and hassle free. My design philosophy is that great design should be effortless, throughtfully crafted and stay within a realistic budget.</p>",
+      "<p><strong>Medha Sahay</strong> is the principal designer at <strong>Aurevia Interiors</strong>, working across Noida, Patna and Deoghar. With over 5 years of experience in residential interiors, she focuses on creating functional, long-lasting spaces that reflect each client’s lifestyle, aspirations and personality.</p><p>The team delivers end-to-end turnkey projects—from concept and design to on-site execution—ensuring the entire process is seamless, transparent and hassle-free.</p>",
 
     education: [
       {
@@ -128,9 +211,9 @@ function createDefaultState() {
     ],
 
     experience: [
-       {
+      {
         title: "Interior Designer · Vaya Design, Bengaluru",
-        sub: "Aug 2024 – Dec 2024 · Home designing, Office space designing, Furniture layouts, concept moodboards, client meetings, site supervision, material/finish selection, detailed drawings and 3D visualisation.",
+        sub: "Aug 2024 – Dec 2024 · Home designing, office space designing, furniture layouts, concept moodboards, client meetings, site supervision, material/finish selection, detailed drawings and 3D visualisation.",
       },
       {
         title: "Interior Designer · Green Hab Arch, Patna",
@@ -151,11 +234,12 @@ function createDefaultState() {
 
     email: "sahaymedha@gmail.com",
     phone: "+91 6205369350",
-    location: "India (working across Ranchi, Patna & remote)",
+    location: "Working across Noida, Patna and Deoghar",
 
     social: {
       linkedin: "https://www.linkedin.com/in/medha-sahay-40166b141/",
-      instagram: "https://www.instagram.com/aureviainteriors?igsh=ODk2bjFiczM2YjNq",
+      instagram:
+        "https://www.instagram.com/aureviainteriors?igsh=ODk2bjFiczM2YjNq",
       facebook: "https://www.facebook.com/share/1BZR4EMjSi/",
       pinterest: "https://be.net/medhasahay",
     },
@@ -196,37 +280,12 @@ function createDefaultState() {
   };
 }
 
-function loadState() {
-  const defaults = createDefaultState();
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return defaults;
-    const parsed = JSON.parse(raw);
-    // shallow merge, but deep for nested keys we care about
-    return {
-      ...defaults,
-      ...parsed,
-      social: { ...defaults.social, ...(parsed.social || {}) },
-      seo: { ...defaults.seo, ...(parsed.seo || {}) },
-      theme: { ...defaults.theme, ...(parsed.theme || {}) },
-      posts: Array.isArray(parsed.posts) ? parsed.posts : defaults.posts,
-      education: defaults.education, // keep structured
-      experience: defaults.experience,
-    };
-  } catch (e) {
-    console.warn("Could not load saved state, using defaults", e);
-    return defaults;
-  }
-}
+// Always use fresh defaults from code
+let state = createDefaultState();
 
-let state = loadState();
-
+// No-op to avoid breaking existing calls
 function saveState() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch (e) {
-    console.warn("Could not save state", e);
-  }
+  // persistence disabled on purpose
 }
 
 // ===============================
@@ -261,7 +320,7 @@ function applyTextContent() {
 
   // Education
   const eduWrap = $("education-timeline");
-  if (eduWrap) {
+  if (eduWrap && Array.isArray(state.education)) {
     eduWrap.innerHTML = "";
     state.education.forEach((item) => {
       const div = document.createElement("div");
@@ -273,7 +332,7 @@ function applyTextContent() {
 
   // Experience
   const expWrap = $("experience-timeline");
-  if (expWrap) {
+  if (expWrap && Array.isArray(state.experience)) {
     expWrap.innerHTML = "";
     state.experience.forEach((item) => {
       const div = document.createElement("div");
@@ -283,7 +342,8 @@ function applyTextContent() {
     });
   }
 
-  if ($("skills-text")) $("skills-text").textContent = state.skillsText;
+  if ($("skills-text") && state.skillsText)
+    $("skills-text").textContent = state.skillsText;
 
   if ($("contact-email")) $("contact-email").textContent = state.email;
   if ($("contact-phone")) $("contact-phone").textContent = state.phone;
@@ -325,17 +385,32 @@ function renderPortfolioPage() {
   visibleItems.forEach((item) => {
     const card = document.createElement("article");
     card.className = "portfolio-card";
+    const description = item.description || item.desc || "";
+    // card.innerHTML = `
+    //   <img loading="lazy" src="${item.src}" alt="${item.title}">
+    //   <div class="portfolio-body">
+    //     <div class="portfolio-category">${item.category}</div>
+    //     <div class="portfolio-title">${item.title}</div>
+    //     <div class="portfolio-desc">${item.description || ""}</div>
+    //   </div>`;
+    
     card.innerHTML = `
-      <img loading="lazy" src="${item.src}" alt="${item.title}">
-      <div class="portfolio-body">
-        <div class="portfolio-category">${item.category}</div>
-        <div class="portfolio-title">${item.title}</div>
-        <div class="portfolio-desc">${item.description}</div>
-      </div>`;
+    <div class="no-download">
+    <img loading="lazy" src="${item.src}" alt="${item.title}" draggable="false">
+    </div>
+    <div class="portfolio-body">
+      <div class="portfolio-category">${item.category}</div>
+      <div class="portfolio-title">${item.title}</div>
+      <div class="portfolio-desc">${description}</div>
+    </div>`;
+
+  card.addEventListener("click", () => {
+    openCategoryModal(item);
+  });
+
     grid.appendChild(card);
   });
 
-  // 🔁 Update button disabled states
   const prevBtn = $("portfolioPrev");
   const nextBtn = $("portfolioNext");
   if (prevBtn) prevBtn.disabled = currentPortfolioPage === 0;
@@ -343,13 +418,130 @@ function renderPortfolioPage() {
     nextBtn.disabled = currentPortfolioPage >= portfolioTotalPages - 1;
 }
 
+// ========= MODAL CATEGORY VIEW =========
+let modalIndex = 0;
+let modalCategoryItems = [];
+let modalAutoInterval = null;
+let modalHovered = false;
+
+function openCategoryModal(item) {
+  // all items in same category
+  modalCategoryItems = portfolioItems.filter(i => i.category === item.category);
+
+  // start from clicked item
+  modalIndex = modalCategoryItems.findIndex(i => i.src === item.src);
+  if (modalIndex < 0) modalIndex = 0;
+
+  updateModalImage(true);
+  const modal = $("portfolioModal");
+  if (modal) modal.style.display = "flex";
+
+  startModalAutoSlide();
+}
+
+function updateModalImage(initial = false) {
+  const imgEl = $("modalImage");
+  const captionEl = $("modalCaption");
+  if (!imgEl || !captionEl || modalCategoryItems.length === 0) return;
+
+  const current = modalCategoryItems[modalIndex];
+
+  if (initial) {
+    // first time: no animation jump
+    imgEl.src = current.src;
+    imgEl.alt = current.title;
+    captionEl.textContent = current.title;
+    return;
+  }
+
+  // smooth slide: out → change src → in
+  imgEl.classList.remove("slide-in");
+  imgEl.classList.add("slide-out");
+
+  setTimeout(() => {
+    imgEl.src = current.src;
+    imgEl.alt = current.title;
+    captionEl.textContent = current.title;
+
+    imgEl.classList.remove("slide-out");
+    imgEl.classList.add("slide-in");
+
+    // remove slide-in after transition so next cycle works again
+    setTimeout(() => {
+      imgEl.classList.remove("slide-in");
+    }, 600);
+  }, 200);
+}
+
+function closeModal() {
+  const modal = $("portfolioModal");
+  if (modal) modal.style.display = "none";
+  stopModalAutoSlide();
+}
+
+function nextModal() {
+  if (modalCategoryItems.length === 0) return;
+  modalIndex = (modalIndex + 1) % modalCategoryItems.length;
+  updateModalImage();
+}
+
+function prevModal() {
+  if (modalCategoryItems.length === 0) return;
+  modalIndex = (modalIndex - 1 + modalCategoryItems.length) % modalCategoryItems.length;
+  updateModalImage();
+}
+
+/* ---------- Auto-slide with pause on hover ---------- */
+
+function startModalAutoSlide() {
+  stopModalAutoSlide(); // avoid duplicates
+
+  modalAutoInterval = setInterval(() => {
+    if (modalHovered) return;  // ⏸ pause when hovered
+    nextModal();
+  }, 3500); // 3.5 seconds per image
+}
+
+function stopModalAutoSlide() {
+  if (modalAutoInterval) {
+    clearInterval(modalAutoInterval);
+    modalAutoInterval = null;
+  }
+}
+
+// function openModal(category, clickedSrc) {
+//   modalCategoryItems = portfolioItems.filter(i => i.category === category);
+//   modalIndex = modalCategoryItems.findIndex(i => i.src === clickedSrc);
+
+//   $("modalImage").src = modalCategoryItems[modalIndex].src;
+//   $("modalCaption").textContent = modalCategoryItems[modalIndex].title;
+//   $("portfolioModal").style.display = "flex";
+// }
+
+// function closeModal() {
+//   $("portfolioModal").style.display = "none";
+// }
+
+// function modalNext() {
+//   modalIndex = (modalIndex + 1) % modalCategoryItems.length;
+//   $("modalImage").src = modalCategoryItems[modalIndex].src;
+//   $("modalCaption").textContent = modalCategoryItems[modalIndex].title;
+// }
+
+// function modalPrev() {
+//   modalIndex = (modalIndex - 1 + modalCategoryItems.length) % modalCategoryItems.length;
+//   $("modalImage").src = modalCategoryItems[modalIndex].src;
+//   $("modalCaption").textContent = modalCategoryItems[modalIndex].title;
+// }
+
+// Event listeners
+document.getElementById("modalClose").onclick = closeModal;
+document.getElementById("modalNext").onclick = modalNext;
+document.getElementById("modalPrev").onclick = modalPrev;
 
 function renderPortfolio() {
-  // make sure itemsPerView is correct for current viewport
   itemsPerView = getItemsPerView();
-  portfolioTotalPages = Math.ceil(
-    portfolioItems.length / itemsPerView
-  );
+  portfolioTotalPages = Math.ceil(portfolioItems.length / itemsPerView);
 
   if (currentPortfolioPage >= portfolioTotalPages) {
     currentPortfolioPage = portfolioTotalPages - 1;
@@ -358,23 +550,6 @@ function renderPortfolio() {
 
   renderPortfolioPage();
 }
-
-// ===============================
-// Auto-slide portfolio every 3 seconds
-// ===============================
-/*setInterval(() => {
-  // Increase page
-  currentPortfolioPage++;
-
-  // Loop back to the first page
-  if (currentPortfolioPage >= portfolioTotalPages) {
-    currentPortfolioPage = 0;
-  }
-
-  renderPortfolioPage();
-}, 3000);*/
-
-
 
 function handleResizePortfolio() {
   const newItemsPerView = getItemsPerView();
@@ -393,16 +568,13 @@ function handleResizePortfolio() {
   renderPortfolioPage();
 }
 
-
-
-    
 function renderPosts() {
   const grid = document.getElementById("blogGrid");
-  if (!grid) return; // if no blog section in this layout, silently ignore
+  if (!grid) return;
   grid.innerHTML = "";
   if (!state.posts || state.posts.length === 0) {
     grid.innerHTML =
-      '<p style="font-size:0.85rem;color:var(--muted);">No posts yet. Add your first insight from the dashboard.</p>';
+      '<p style="font-size:0.85rem;color:var(--muted);">No posts yet.</p>';
     return;
   }
   state.posts.forEach((post) => {
@@ -416,380 +588,9 @@ function renderPosts() {
   });
 }
 
-// ===============================
-// Dashboard: build UI
-// ===============================
-function buildDashboard() {
-  const body = document.querySelector(".dashboard-body");
-  if (!body) return;
-
-  body.innerHTML = `
-    <div>
-      <div class="dashboard-section-title">Hero & Intro</div>
-      <div class="dash-field">
-        <label for="dash-hero-title">Hero Title</label>
-        <input id="dash-hero-title" type="text" />
-      </div>
-      <div class="dash-field">
-        <label for="dash-hero-subtitle">Hero Subtitle</label>
-        <textarea id="dash-hero-subtitle"></textarea>
-      </div>
-      <div class="dash-field">
-        <label for="dash-hero-tagline">Tagline</label>
-        <input id="dash-hero-tagline" type="text" />
-      </div>
-    </div>
-
-    <div>
-      <div class="dashboard-section-title">Theme & Appearance</div>
-      <div class="dash-row">
-        <div class="dash-field">
-          <label for="dash-primary-color">Primary Color</label>
-          <input type="color" id="dash-primary-color" />
-        </div>
-        <div class="dash-field">
-          <label for="dash-accent-color">Accent Color</label>
-          <input type="color" id="dash-accent-color" />
-        </div>
-      </div>
-      <div class="dash-field">
-        <label for="dash-font-main">Main Font</label>
-        <select id="dash-font-main">
-          <option value="Poppins">Poppins</option>
-          <option value="Playfair Display">Playfair Display</option>
-          <option value="system-ui">System UI</option>
-        </select>
-      </div>
-      <p class="dash-note">
-        Changes are applied live using CSS variables and stored in your browser (localStorage).
-      </p>
-    </div>
-
-    <div>
-      <div class="dashboard-section-title">About Content</div>
-      <div class="dash-field">
-        <label for="dash-about-intro">About Me – Paragraph</label>
-        <textarea id="dash-about-intro"></textarea>
-      </div>
-      <div class="dash-field">
-        <label for="dash-skills-text">Skills</label>
-        <textarea id="dash-skills-text"></textarea>
-      </div>
-    </div>
-
-    <div>
-      <div class="dashboard-section-title">Contact Info</div>
-      <div class="dash-field">
-        <label for="dash-email">Email</label>
-        <input id="dash-email" type="email" />
-      </div>
-      <div class="dash-field">
-        <label for="dash-phone">Phone</label>
-        <input id="dash-phone" type="text" />
-      </div>
-      <div class="dash-field">
-        <label for="dash-location">Location</label>
-        <input id="dash-location" type="text" />
-      </div>
-    </div>
-
-    <div>
-      <div class="dashboard-section-title">Social Links</div>
-      <div class="dash-field">
-        <label for="dash-linkedin">LinkedIn</label>
-        <input id="dash-linkedin" type="url" placeholder="https://www.linkedin.com/..." />
-      </div>
-      <div class="dash-field">
-        <label for="dash-instagram">Instagram</label>
-        <input id="dash-instagram" type="url" />
-      </div>
-      <div class="dash-field">
-        <label for="dash-facebook">Facebook</label>
-        <input id="dash-facebook" type="url" />
-      </div>
-      <div class="dash-field">
-        <label for="dash-pinterest">Pinterest / Behance</label>
-        <input id="dash-pinterest" type="url" />
-      </div>
-    </div>
-
-    <div>
-      <div class="dashboard-section-title">Posts / Insights</div>
-      <div class="dash-field">
-        <label for="dash-post-title">Post Title</label>
-        <input id="dash-post-title" type="text" />
-      </div>
-      <div class="dash-field">
-        <label for="dash-post-body">Short Description</label>
-        <textarea id="dash-post-body"></textarea>
-      </div>
-      <button class="dash-btn primary" id="dash-add-post">➕ Add Post</button>
-      <p class="dash-note mt-1">
-        Posts will appear in the “Notes from my design desk” section (if included in this layout).
-      </p>
-    </div>
-
-    <div>
-      <div class="dashboard-section-title">SEO Panel</div>
-      <div class="dash-field">
-        <label for="dash-meta-title">Meta Title</label>
-        <input id="dash-meta-title" type="text" />
-      </div>
-      <div class="dash-field">
-        <label for="dash-meta-description">Meta Description</label>
-        <textarea id="dash-meta-description"></textarea>
-      </div>
-      <div class="dash-field">
-        <label for="dash-meta-keywords">Keywords (comma separated)</label>
-        <textarea id="dash-meta-keywords"></textarea>
-      </div>
-      <button class="dash-btn" id="dash-apply-seo">⚡ Apply SEO</button>
-      <p class="dash-note mt-1">
-        Updates the page &lt;title&gt;, meta description and keywords.
-      </p>
-    </div>
-
-    <div>
-      <button class="dash-btn" id="dash-reset">Reset to defaults</button>
-    </div>
-  `;
-}
-
-function syncDashboardInputs() {
-  $("dash-hero-title").value = state.heroTitle;
-  $("dash-hero-subtitle").value = state.heroSubtitle;
-  $("dash-hero-tagline").value = state.heroTagline;
-
-  $("dash-about-intro").value = state.aboutIntro
-    .replace(/<p>/g, "")
-    .replace(/<\/p>/g, "\n\n");
-  $("dash-skills-text").value = state.skillsText;
-
-  $("dash-email").value = state.email;
-  $("dash-phone").value = state.phone;
-  $("dash-location").value = state.location;
-
-  $("dash-linkedin").value = state.social.linkedin;
-  $("dash-instagram").value = state.social.instagram;
-  $("dash-facebook").value = state.social.facebook;
-  $("dash-pinterest").value = state.social.pinterest;
-
-  $("dash-meta-title").value = state.seo.title;
-  $("dash-meta-description").value = state.seo.description;
-  $("dash-meta-keywords").value = state.seo.keywords;
-
-  $("dash-primary-color").value = state.theme.primary;
-  $("dash-accent-color").value = state.theme.accent;
-  $("dash-font-main").value = state.theme.font;
-}
-
-// ===============================
-// Event listeners
-// ===============================
-function attachDashboardEvents() {
-
-    // ===== Mobile nav toggle =====
-  const navToggle = $("navToggle");
-  const headerEl = document.querySelector("header");
-
-  if (navToggle && headerEl) {
-    navToggle.addEventListener("click", () => {
-      headerEl.classList.toggle("nav-open");
-    });
-  }
-
-  // Close mobile menu when a nav link is clicked
-  const navLinks = document.querySelectorAll(".nav-links a");
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      if (headerEl.classList.contains("nav-open")) {
-        headerEl.classList.remove("nav-open");
-      }
-    });
-  });
-
-  // ✅ Portfolio slider controls – keep ONLY this block
-  const prevBtn = $("portfolioPrev");
-  const nextBtn = $("portfolioNext");
-
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      if (currentPortfolioPage > 0) {
-        currentPortfolioPage--;
-        renderPortfolioPage();
-      }
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      if (currentPortfolioPage < portfolioTotalPages - 1) {
-        currentPortfolioPage++;
-        renderPortfolioPage();
-      }
-    });
-  }
-
-  // Theme toggle button
-  const themeToggle = $("themeToggle");
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      state.theme.dark = !state.theme.dark;
-      applyTheme();
-      saveState();
-    });
-  }
-
-  // Open/close dashboard
-  const panel = $("dashboardPanel");
-  const openBtn = $("dashboardOpen");
-  const closeBtn = $("dashboardClose");
-  if (openBtn && panel) {
-    openBtn.addEventListener("click", () => {
-      panel.classList.add("open");
-    });
-  }
-  if (closeBtn && panel) {
-    closeBtn.addEventListener("click", () => {
-      panel.classList.remove("open");
-    });
-  }
-
-  // Hero
-  $("dash-hero-title").addEventListener("input", (e) => {
-    state.heroTitle = e.target.value;
-    if ($("hero-title")) $("hero-title").textContent = state.heroTitle;
-    saveState();
-  });
-  $("dash-hero-subtitle").addEventListener("input", (e) => {
-    state.heroSubtitle = e.target.value;
-    if ($("hero-subtitle")) $("hero-subtitle").textContent = state.heroSubtitle;
-    saveState();
-  });
-  $("dash-hero-tagline").addEventListener("input", (e) => {
-    state.heroTagline = e.target.value;
-    if ($("hero-tagline-text"))
-      $("hero-tagline-text").textContent = state.heroTagline;
-    saveState();
-  });
-
-  // Theme controls
-  $("dash-primary-color").addEventListener("input", (e) => {
-    state.theme.primary = e.target.value;
-    applyTheme();
-    saveState();
-  });
-  $("dash-accent-color").addEventListener("input", (e) => {
-    state.theme.accent = e.target.value;
-    applyTheme();
-    saveState();
-  });
-  $("dash-font-main").addEventListener("change", (e) => {
-    state.theme.font = e.target.value;
-    applyTheme();
-    saveState();
-  });
-
-  // About & skills
-  $("dash-about-intro").addEventListener("input", (e) => {
-    const text = e.target.value.trim();
-    // simple paragraph split on blank lines
-    const paragraphs = text.split(/\n\s*\n/).map((p) => p.trim());
-    state.aboutIntro = paragraphs.map((p) => `<p>${p}</p>`).join("");
-    if ($("about-intro")) $("about-intro").innerHTML = state.aboutIntro;
-    saveState();
-  });
-  $("dash-skills-text").addEventListener("input", (e) => {
-    state.skillsText = e.target.value;
-    if ($("skills-text")) $("skills-text").textContent = state.skillsText;
-    saveState();
-  });
-
-  // Contact
-  $("dash-email").addEventListener("input", (e) => {
-    state.email = e.target.value;
-    if ($("contact-email")) $("contact-email").textContent = state.email;
-    saveState();
-  });
-  $("dash-phone").addEventListener("input", (e) => {
-    state.phone = e.target.value;
-    if ($("contact-phone")) $("contact-phone").textContent = state.phone;
-    saveState();
-  });
-  $("dash-location").addEventListener("input", (e) => {
-    state.location = e.target.value;
-    if ($("contact-location"))
-      $("contact-location").textContent = state.location;
-    saveState();
-  });
-
-  // Social
-  ["linkedin", "instagram", "facebook", "pinterest"].forEach((network) => {
-    $("dash-" + network).addEventListener("input", (e) => {
-      state.social[network] = e.target.value;
-      const el = $("social-" + network);
-      if (el) el.href = state.social[network] || "#";
-      saveState();
-    });
-  });
-
-  // Posts
-  const addPostBtn = $("dash-add-post");
-  if (addPostBtn) {
-    addPostBtn.addEventListener("click", () => {
-      const titleInput = $("dash-post-title");
-      const bodyInput = $("dash-post-body");
-      const title = titleInput.value.trim();
-      const body = bodyInput.value.trim();
-      if (!title || !body) return;
-      state.posts.unshift({
-        title,
-        body,
-        date: new Date().toLocaleDateString("en-IN", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }),
-      });
-      titleInput.value = "";
-      bodyInput.value = "";
-      renderPosts();
-      saveState();
-    });
-  }
-
-  // SEO
-  $("dash-apply-seo").addEventListener("click", () => {
-    state.seo.title = $("dash-meta-title").value || state.seo.title;
-    state.seo.description =
-      $("dash-meta-description").value || state.seo.description;
-    state.seo.keywords =
-      $("dash-meta-keywords").value || state.seo.keywords;
-    applySEO();
-    saveState();
-    alert("SEO meta details updated.");
-  });
-
-  // Reset
-  $("dash-reset").addEventListener("click", () => {
-    if (!confirm("Reset all customisations to defaults?")) return;
-    state = loadState(); // reload defaults, ignoring saved
-    // But we also clear localStorage
-    localStorage.removeItem(STORAGE_KEY);
-    state = createDefaultState();
-    applyTheme();
-    applyTextContent();
-    applySEO();
-    renderPosts();
-    syncDashboardInputs();
-    saveState();
-  });
-}
-
 /* ------------------------------------------
-   AUTO SLIDE FOR PORTFOLIO (Smooth Sliding)
+   AUTO SLIDE FOR PORTFOLIO (Auto paging)
 ------------------------------------------- */
-
 let autoSlideInterval;
 
 function startAutoSlide() {
@@ -799,58 +600,153 @@ function startAutoSlide() {
     currentPortfolioPage++;
 
     if (currentPortfolioPage >= portfolioTotalPages) {
-      currentPortfolioPage = 0;  // loop back to first set
+      currentPortfolioPage = 0; // loop back
     }
 
     renderPortfolioPage();
-  }, 3500); // change slide every 3.5 seconds
+  }, 3500);
 }
 
 function stopAutoSlide() {
   if (autoSlideInterval) clearInterval(autoSlideInterval);
 }
 
-// Pause auto-scroll when user clicks
-$("portfolioPrev")?.addEventListener("click", stopAutoSlide);
-$("portfolioNext")?.addEventListener("click", stopAutoSlide);
-
-// Restart auto slide after clicking a button
-$("portfolioPrev")?.addEventListener("click", () => setTimeout(startAutoSlide, 500));
-$("portfolioNext")?.addEventListener("click", () => setTimeout(startAutoSlide, 500));
-
-// Start auto-sliding after page loads
-document.addEventListener("DOMContentLoaded", startAutoSlide);
-
-
 // ===============================
 // Initialisation
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
+  // one-time cleanup of old storage (harmless if key doesn't exist)
+  try {
+    localStorage.removeItem("medha-sahay-portfolio-state-v1");
+  } catch (e) {
+    // ignore if blocked
+  }
+
+  // Modal buttons + click-outside to close
+  const modalClose = $("modalClose");
+  const modalNext = $("modalNext");
+  const modalPrev = $("modalPrev");
+  const modal = $("portfolioModal");
+  const modalImg = $("modalImage");
+
+  if (modalClose) modalClose.addEventListener("click", closeModal);
+  if (modalNext)  modalNext.addEventListener("click", () => {
+    nextModal();
+    stopModalAutoSlide();
+    setTimeout(startModalAutoSlide, 500);
+  });
+  if (modalPrev)  modalPrev.addEventListener("click", () => {
+    prevModal();
+    stopModalAutoSlide();
+    setTimeout(startModalAutoSlide, 500);
+  });
+
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+
+  // 🔸 Pause autoplay when hovering the modal image
+  if (modalImg) {
+    modalImg.addEventListener("mouseenter", () => {
+      modalHovered = true;
+    });
+    modalImg.addEventListener("mouseleave", () => {
+      modalHovered = false;
+    });
+  }
+
   // Footer year
   if ($("footer-year")) {
     $("footer-year").textContent = new Date().getFullYear();
   }
 
-  // renderPortfolio();   // this now shows ONLY the first 3 images
-  // renderPosts && renderPosts();       // if you use posts
-  buildDashboard();
   applyTheme();
   applyTextContent();
   applySEO();
   renderPortfolio();
   renderPosts();
-  syncDashboardInputs();
-  attachDashboardEvents();
-   // Update slider layout dynamically on window resize
- window.addEventListener("resize", handleResizePortfolio);
-  });
+  window.addEventListener("resize", handleResizePortfolio);
 
-// Smooth slide-in animation for profile image
-document.addEventListener("DOMContentLoaded", () => {
+  // Smooth slide-in animation for profile image
   const profileImg = document.querySelector(".hero-frame img");
   if (profileImg) {
     setTimeout(() => {
       profileImg.classList.add("show");
     }, 150);
   }
+
+  // Mobile nav toggle
+  const navToggle = $("navToggle");
+  const headerEl = document.querySelector("header");
+  if (navToggle && headerEl) {
+    navToggle.addEventListener("click", () => {
+      headerEl.classList.toggle("nav-open");
+    });
+  }
+
+  const navLinks = document.querySelectorAll(".nav-links a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (headerEl && headerEl.classList.contains("nav-open")) {
+        headerEl.classList.remove("nav-open");
+      }
+    });
+  });
+
+  // Portfolio slider controls
+  const prevBtn = $("portfolioPrev");
+  const nextBtn = $("portfolioNext");
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      stopAutoSlide();
+      if (currentPortfolioPage > 0) {
+        currentPortfolioPage--;
+      } else {
+        currentPortfolioPage = portfolioTotalPages - 1;
+      }
+      renderPortfolioPage();
+      setTimeout(startAutoSlide, 500);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      stopAutoSlide();
+      if (currentPortfolioPage < portfolioTotalPages - 1) {
+        currentPortfolioPage++;
+      } else {
+        currentPortfolioPage = 0;
+      }
+      renderPortfolioPage();
+      setTimeout(startAutoSlide, 500);
+    });
+  }
+
+  // Theme toggle button
+  const themeToggle = $("themeToggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      state.theme.dark = !state.theme.dark;
+      applyTheme();
+      saveState(); // no-op but safe
+    });
+  }
+
+  // Start auto-sliding
+  startAutoSlide();
 });
+
+// Disable right-click on the entire page
+document.addEventListener("contextmenu", (e) => e.preventDefault());
+
+// Disable long press saving on mobile
+document.addEventListener("touchstart", function(e) {
+    if (e.target.tagName === "IMG") {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+Now, edit it in accordance to last question
