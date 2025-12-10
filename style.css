@@ -14,6 +14,39 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+.services-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+  opacity: 0.75;
+}
+
+/* Bullet list styling */
+.services-list {
+  margin: 0;
+  padding-left: 1.1rem;              /* matches subtitle alignment */
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.services-list li {
+  margin-bottom: 0.22rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero-services {
+    max-width: 100%;
+  }
+  .services-list {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
 .hero-frame img.show {
   opacity: 1;
   transform: translateY(0);
