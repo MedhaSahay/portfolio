@@ -14,6 +14,13 @@
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+/* Align Services cleanly under Hero Subtitle */
+.hero-services {
+  margin-top: 1rem;
+  max-width: 34rem;                  /* SAME max-width as hero subtitle */
+  color: var(--muted);
+}
+
 .services-label {
   font-size: 0.82rem;
   font-weight: 600;
