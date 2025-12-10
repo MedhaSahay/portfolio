@@ -5,6 +5,10 @@ function $(id) {
   return document.getElementById(id);
 }
 
+function isMobileView() {
+  return window.innerWidth < 768;
+}
+
 function scrollToSection(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -839,6 +843,10 @@ function handleResizePortfolio() {
   if (currentPortfolioPage < 0) currentPortfolioPage = 0;
 
   renderPortfolioPage();
+
+// Update auto-slide behaviour on breakpoint change
+  stopAutoSlide();
+  startAutoSlide(); // will only run if mobile
 }
 
 function renderPosts() {
@@ -868,6 +876,9 @@ let autoSlideInterval;
 
 function startAutoSlide() {
   stopAutoSlide(); // prevent duplicates
+
+	// ✅ Only auto-slide on mobile
+  if (!isMobileView()) return;
 
   autoSlideInterval = setInterval(() => {
     currentPortfolioPage++;
@@ -937,6 +948,9 @@ document.addEventListener("DOMContentLoaded", () => {
     $("footer-year").textContent = new Date().getFullYear();
   }
 
+ // Start auto-sliding
+  startAutoSlide();
+	
   applyTheme();
   applyTextContent();
   applySEO();
