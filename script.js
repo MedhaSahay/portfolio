@@ -474,7 +474,7 @@ const portfolioItems = [
   title: "Kids Bedroom – Pink & Cream Theme",
   description:
     "A cheerful kids' bedroom designed in soft pink and cream tones, featuring a playful sun-themed false ceiling, spacious wardrobe with circular accents, and a dedicated study niche.",
-  category: "Contemporary Home Interiors,
+  category: "Contemporary Home Interiors",
 },
 
 ];
