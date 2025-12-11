@@ -600,38 +600,57 @@ function updateModalImage(initial = false) {
   const captionEl = $("modalCaption");
   if (!imgEl || !captionEl || modalCategoryItems.length === 0) return;
 
-  const current = modalCategoryItems[modalIndex];
+  // const current = modalCategoryItems[modalIndex];
+	const current = modalCategoryItems[modalIndex] || {};
 
+	// Ensure accessible alt text, title and description are set
+  const title = current.title || "";
+  const desc = current.description || "";
+	
   if (initial) {
-    // first time: no animation jump
-    imgEl.src = current.src;
-    imgEl.alt = current.title;
+    // first time: set without animation to avoid flicker
+    imgEl.src = current.src || "";
+    imgEl.alt = current.title || "";
     // captionEl.textContent = current.title;
 	 captionEl.innerHTML = `
-  <div class="modal-title">${current.title}</div>
-  <div class="modal-description">${current.description || ""}</div>
+	 <div class="modal-title">${escapeHtml(title)}</div>
+      <div class="modal-description">${escapeHtml(desc)}</div>
 `;
  
     return;
   }
 
-  // smooth slide: out → change src → in
+   // Smooth slide sequence: out -> change -> in
   imgEl.classList.remove("slide-in");
   imgEl.classList.add("slide-out");
 
   setTimeout(() => {
-    imgEl.src = current.src;
-    imgEl.alt = current.title;
-    captionEl.textContent = current.title;
+    imgEl.src = current.src || "";
+    imgEl.alt = title || "";
+    captionEl.innerHTML = `
+      <div class="modal-title">${escapeHtml(title)}</div>
+      <div class="modal-description">${escapeHtml(desc)}</div>
+    `;
 
     imgEl.classList.remove("slide-out");
     imgEl.classList.add("slide-in");
 
-    // remove slide-in after transition so next cycle works again
+    // remove slide-in class after the animation finishes
     setTimeout(() => {
       imgEl.classList.remove("slide-in");
     }, 600);
   }, 200);
+}
+
+// small helper to avoid HTML injection/accidental broken markup
+function escapeHtml(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 function closeModal() {
