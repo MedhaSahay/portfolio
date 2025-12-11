@@ -1081,3 +1081,30 @@ html.dark .dash-field select {
 .modal-btn:hover {
   background: #ffffff40;
 }
+
+/* ============================
+   MODAL CONTENT STYLING
+=============================== */
+
+.modal-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.modal-description {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#modalImage {
+  max-height: 78vh; /* bigger modal image */
+  object-fit: contain;
+}
+
+
