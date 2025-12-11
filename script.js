@@ -711,7 +711,7 @@ function renderPortfolioPage() {
 
     card.innerHTML = `
       <div class="no-download">
-        <img loading="lazy" src="${item.src}" alt="${item.title}" draggable="false" class="portfolio-img>
+        <img loading="lazy" src="${item.src}" alt="${item.title}" draggable="false" class="portfolio-img">
       </div>
       <div class="portfolio-body">
         <div class="portfolio-category">${item.category}</div>
