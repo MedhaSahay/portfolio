@@ -557,6 +557,11 @@ html.dark .slider-btn {
 
 /* Mobile: 1 card visible */
 @media (max-width: 768px) {
+   .no-download img {
+    pointer-events: auto !important;
+    cursor: pointer;
+  }
+   
   .portfolio-slider {
     gap: 0.5rem;
   }
