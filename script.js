@@ -711,7 +711,7 @@ function renderPortfolioPage() {
 
     card.innerHTML = `
       <div class="no-download">
-        <img loading="lazy" src="${item.src}" alt="${item.title}" draggable="false">
+        <img loading="lazy" src="${item.src}" alt="${item.title}" draggable="false" class="portfolio-img>
       </div>
       <div class="portfolio-body">
         <div class="portfolio-category">${item.category}</div>
@@ -723,6 +723,16 @@ function renderPortfolioPage() {
     card.addEventListener("click", () => {
       openCategoryModal(item);
     });
+
+	  // Mobile-only: image should open modal too
+	const imgEl = card.querySelector(".portfolio-img");
+
+imgEl.addEventListener("click", (e) => {
+  if (window.innerWidth <= 768) {   // mobile only
+    e.stopPropagation();            // avoid double trigger
+    openCategoryModal(item);
+  }
+});
 
     grid.appendChild(card);
   });
