@@ -642,6 +642,101 @@ function updateModalImage(initial = false) {
   }, 200);
 }
 
+// ---------------------------
+// Pause-on-hover (desktop) & long-press (touch) for modal image
+// ---------------------------
+
+// configurable long-press duration (ms)
+const LONG_PRESS_MS = 300;
+
+(function setupModalPauseControls() {
+  const modalImg = $("modalImage");
+  if (!modalImg) return;
+
+  // Flags & timer
+  let longPressTimer = null;
+  let longPressActive = false;
+
+  // --- Desktop mouse hover (pointer events also cover many touch-capable laptops) ---
+  modalImg.addEventListener("mouseenter", () => {
+    // only treat as hover on non-touch or pointer mouse
+    modalHovered = true;
+  });
+
+  modalImg.addEventListener("mouseleave", () => {
+    modalHovered = false;
+  });
+
+  // --- Touch / Long-press handling for mobile & tablet ---
+  // We'll use pointer events if available (unified), otherwise fall back to touch events.
+  // The logic: start a timer on pointerdown/touchstart; if it reaches LONG_PRESS_MS,
+  // set modalHovered = true (pauses auto slide). On pointerup/touchend/cancel,
+  // clear timer and if longPressActive, unset modalHovered.
+
+  function startLongPressTimer() {
+    clearLongPressTimer();
+    longPressTimer = setTimeout(() => {
+      longPressActive = true;
+      modalHovered = true; // pause the slideshow
+    }, LONG_PRESS_MS);
+  }
+
+  function clearLongPressTimer() {
+    if (longPressTimer) {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
+    }
+  }
+
+  function cancelLongPress() {
+    clearLongPressTimer();
+    if (longPressActive) {
+      // user released after long-press: resume
+      longPressActive = false;
+      modalHovered = false;
+    }
+  }
+
+  // Use pointer events when supported (covers mouse + touch + pen)
+  if (window.PointerEvent) {
+    modalImg.addEventListener("pointerdown", (e) => {
+      // only long-press on primary button / touch
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      startLongPressTimer();
+    });
+    modalImg.addEventListener("pointerup", cancelLongPress);
+    modalImg.addEventListener("pointercancel", cancelLongPress);
+    modalImg.addEventListener("pointermove", () => {
+      // moving finger should cancel the long-press detection (user is dragging)
+      clearLongPressTimer();
+    });
+  } else {
+    // fallback for older browsers: touch events + mouse
+    modalImg.addEventListener("touchstart", (e) => {
+      if (e.touches && e.touches.length > 1) {
+        // multi-touch: don't trigger long press
+        clearLongPressTimer();
+        return;
+      }
+      startLongPressTimer();
+    }, { passive: true });
+
+    modalImg.addEventListener("touchend", (e) => {
+      cancelLongPress();
+    });
+
+    modalImg.addEventListener("touchcancel", () => {
+      cancelLongPress();
+    });
+
+    modalImg.addEventListener("touchmove", () => {
+      // cancel if user moves finger (likely a swipe)
+      clearLongPressTimer();
+    }, { passive: true });
+  }
+})();
+
+
 // small helper to avoid HTML injection/accidental broken markup
 function escapeHtml(str) {
   if (!str) return "";
@@ -808,14 +903,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 🔸 Pause autoplay when hovering the modal image
-  if (modalImg) {
-    modalImg.addEventListener("mouseenter", () => {
-      modalHovered = true;
-    });
-    modalImg.addEventListener("mouseleave", () => {
-      modalHovered = false;
-    });
-  }
+  // if (modalImg) {
+  //   modalImg.addEventListener("mouseenter", () => {
+  //     modalHovered = true;
+  //   });
+  //   modalImg.addEventListener("mouseleave", () => {
+  //     modalHovered = false;
+  //   });
+  // }
 
   // Footer year
   if ($("footer-year")) {
