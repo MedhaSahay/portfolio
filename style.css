@@ -1044,6 +1044,8 @@ html.dark .dash-field select {
   margin-top: 12px;
   color: #fff;
   font-size: 1rem;
+  text-align: center;
+  max-width: 900px;
 }
 
 .modal-close {
@@ -1095,7 +1097,7 @@ html.dark .dash-field select {
 
 .modal-description {
   font-size: 0.9rem;
-  color: var(--muted);
+  color: rgba(255,255,255,0.92);
   line-height: 1.45;
   max-width: 90%;
   margin: 0 auto;
