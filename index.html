@@ -213,7 +213,7 @@
   </footer>
   
   <!-- PORTFOLIO MODAL -->
-<div id="portfolioModal" class="modal">
+<!--<div id="portfolioModal" class="modal">
   <div class="modal-content">
     <span id="modalClose" class="modal-close">&times;</span>
 
@@ -225,7 +225,25 @@
       <button id="modalNext" class="modal-btn">›</button>
     </div>
   </div>
+</div>-->
+
+  <!-- Portfolio modal (lightbox) -->
+<div id="portfolioModal" class="modal" aria-hidden="true" role="dialog" aria-label="Portfolio viewer">
+  <div class="modal-content">
+    <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
+
+    <div style="display:flex;align-items:center;gap:16px;flex-direction:column;">
+      <img id="modalImage" class="modal-img" src="" alt="">
+      <div id="modalCaption" class="modal-caption" aria-live="polite"></div>
+    </div>
+
+    <div class="modal-nav">
+      <button id="modalPrev" class="modal-btn" aria-label="Previous image">‹</button>
+      <button id="modalNext" class="modal-btn" aria-label="Next image">›</button>
+    </div>
+  </div>
 </div>
+
 
 
   <script src="script.js"></script>
