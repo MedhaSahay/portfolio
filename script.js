@@ -186,13 +186,7 @@ const portfolioItems = [
       "Execution of a warm, compact living room featuring a 3D textured wall panel, wooden flooring, accent rug and coordinated seating.",
     category: "Living Room – Execution",
   },
-  {
-    src: "images/112.JPG",          // second photo in same subcategory
-    title: "Compact Living Room – TV & Entrance Wall",
-    description:
-      "TV and entrance wall with integrated storage, artwork and linear lighting, continuing the same cosy, contemporary language.",
-    category: "Living Room – Execution",
-  },
+  
   
   // ===== Premium Residential & Concept Set =====
 {
@@ -321,6 +315,14 @@ const portfolioItems = [
     "A plush sectional living room with mirror-grid partition, sculpted ceiling and earthy tones.",
   category: "Premium Residences",
 },
+
+{
+    src: "images/112.JPG",          // second photo in same subcategory
+    title: "Compact Living Room – TV & Entrance Wall",
+    description:
+      "TV and entrance wall with integrated storage, artwork and linear lighting, continuing the same cosy, contemporary language.",
+    category: "Living Room – Execution",
+  },
 
 {
   src: "images/211.jpeg",
