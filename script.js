@@ -606,7 +606,12 @@ function updateModalImage(initial = false) {
     // first time: no animation jump
     imgEl.src = current.src;
     imgEl.alt = current.title;
-    captionEl.textContent = current.title;
+    // captionEl.textContent = current.title;
+	 captionEl.innerHTML = `
+  <div class="modal-title">${current.title}</div>
+  <div class="modal-description">${current.description || ""}</div>
+`;
+ 
     return;
   }
 
