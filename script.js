@@ -196,6 +196,48 @@ const portfolioItems = [
     "Earthy, layered master bedroom with botanical feature wall, recessed ceiling lighting and a calm neutral palette.",
   category: "Premium Residences",
 },
+
+	{
+  src: "images/519.jpeg",
+  title: "Backlit Designer Mandir – Contemporary Apartment",
+  description:
+    "A beautifully crafted white mandir unit with CNC-cut patterns, soft backlighting and an elevated pedestal that enhances the serenity of the space.",
+  category: "Contemporary Home Interiors",
+},
+
+	{
+  src: "images/211.jpeg",
+  title: "Compact Modular Kitchen – Brick Tile Backsplash",
+  description:
+    "A smart and space-efficient modular kitchen featuring brick-textured backsplash, overhead glossy cabinetry, and seamless under-cabinet lighting.",
+  category: "Modular Kitchens",
+},
+
+	{
+  src: "images/311.jpeg",
+  title: "Premium TV Unit With Jaali & Backlit Panel",
+  description:
+    "A modern TV wall featuring CNC jaali, fluted panels, warm LED highlights and a low storage unit—perfect for contemporary homes.",
+  category: "Premium TV Units & Ceilings",
+},
+
+	{
+  src: "images/411.jpeg",
+  title: "Gold Chevron Master Bedroom",
+  description:
+    "Luxurious master bedroom with bold chevron-patterned gold panels, upholstered headboard and warm cove lighting.",
+  category: "Premium Residences – Master Suite",
+},
+
+	{
+    src: "images/112.JPG",          // second photo in same subcategory
+    title: "Compact Living Room – TV & Entrance Wall",
+    description:
+      "TV and entrance wall with integrated storage, artwork and linear lighting, continuing the same cosy, contemporary language.",
+    category: "Living Room – Execution",
+  },
+	
+	
 {
   src: "images/T07V2.jpg",
   title: "Modern Living Room – Blue Accent Art",
@@ -316,21 +358,7 @@ const portfolioItems = [
   category: "Premium Residences",
 },
 
-{
-    src: "images/112.JPG",          // second photo in same subcategory
-    title: "Compact Living Room – TV & Entrance Wall",
-    description:
-      "TV and entrance wall with integrated storage, artwork and linear lighting, continuing the same cosy, contemporary language.",
-    category: "Living Room – Execution",
-  },
 
-{
-  src: "images/211.jpeg",
-  title: "Compact Modular Kitchen – Brick Tile Backsplash",
-  description:
-    "A smart and space-efficient modular kitchen featuring brick-textured backsplash, overhead glossy cabinetry, and seamless under-cabinet lighting.",
-  category: "Modular Kitchens",
-},
 {
   src: "images/212.jpeg",
   title: "Contemporary Modular Kitchen – Grey & White Palette",
@@ -360,13 +388,7 @@ const portfolioItems = [
   category: "Modular Kitchens",
 },
 
-{
-  src: "images/311.jpeg",
-  title: "Premium TV Unit With Jaali & Backlit Panel",
-  description:
-    "A modern TV wall featuring CNC jaali, fluted panels, warm LED highlights and a low storage unit—perfect for contemporary homes.",
-  category: "Premium TV Units & Ceilings",
-},
+
 {
   src: "images/312.jpeg",
   title: "Luxury Pooja Unit With Backlit Mandala",
@@ -382,13 +404,7 @@ const portfolioItems = [
   category: "Premium TV Units & Ceilings",
 },
 
-{
-  src: "images/411.jpeg",
-  title: "Gold Chevron Master Bedroom",
-  description:
-    "Luxurious master bedroom with bold chevron-patterned gold panels, upholstered headboard and warm cove lighting.",
-  category: "Premium Residences – Master Suite",
-},
+
 {
   src: "images/412.jpeg",
   title: "TV Wall & Entrance – Master Suite",
@@ -405,13 +421,7 @@ const portfolioItems = [
 },
 
 
-{
-  src: "images/519.jpeg",
-  title: "Backlit Designer Mandir – Contemporary Apartment",
-  description:
-    "A beautifully crafted white mandir unit with CNC-cut patterns, soft backlighting and an elevated pedestal that enhances the serenity of the space.",
-  category: "Contemporary Home Interiors",
-},
+
 {
   src: "images/520.jpeg",
   title: "Modern Bedroom – Yellow & Grey Palette",
