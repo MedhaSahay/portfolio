@@ -15,11 +15,312 @@ function scrollToSection(id) {
 }
 window.scrollToSection = scrollToSection; // used in HTML onclick
 
-// ===============================
-// Portfolio data
-// (your portfolioItems array omitted here for brevity in this snippet)
-// paste your existing portfolioItems array here
-// ===============================
+const portfolioItems = [
+	// ===== Living Room – Execution (NEW SUBCATEGORY) =====
+  {
+    src: "images/111.JPG",          // make sure this path matches your file
+    title: "Compact Living Room – Feature Wall",
+    description:
+      "Execution of a warm, compact living room featuring a 3D textured wall panel, wooden flooring, accent rug and coordinated seating.",
+    category: "Living Room – Execution",
+  },
+  {
+    src: "images/112.JPG",          // second photo in same subcategory
+    title: "Compact Living Room – TV & Entrance Wall",
+    description:
+      "TV and entrance wall with integrated storage, artwork and linear lighting, continuing the same cosy, contemporary language.",
+    category: "Living Room – Execution",
+  },
+  
+  // ===== Premium Residential & Concept Set =====
+{
+  src: "images/Koderma mbr1.jpg",
+  title: "Premium Master Bedroom – Koderma",
+  description:
+    "Earthy, layered master bedroom with botanical feature wall, recessed ceiling lighting and a calm neutral palette.",
+  category: "Premium Residences",
+},
+{
+  src: "images/T07V2.jpg",
+  title: "Modern Living Room – Blue Accent Art",
+  description:
+    "Contemporary living room with statement art, wall panelling, and soft cove lighting.",
+  category: "Premium Residences",
+},
+{
+  src: "images/T07V1.jpg",
+  title: "TV Wall & Panelled Backdrop",
+  description:
+    "Feature TV wall with marble texture, fluted panels and display niches with warm lighting.",
+  category: "Premium Residences",
+},
+{
+  src: "images/T15 V3.jpg",
+  title: "Blue Harmony Lounge",
+  description:
+    "Elegant lounge seating with blue sofas, abstract artwork and symmetric wall lighting.",
+  category: "Premium Residences",
+},
+{
+  src: "images/MNMLAI_SKETCHTOIMAGE_00001_.png",
+  title: "Walk-in Wardrobe with Study Corner",
+  description:
+    "Luxurious wardrobe and work nook with integrated lighting and sleek modern finishes.",
+  category: "Premium Residences",
+},
+{
+  src: "images/myarchitectai_4q2tc49br_sd.jpg",
+  title: "City View Bedroom",
+  description:
+    "Warm wood-toned bedroom with large glazing, night cityscape view and layered lighting.",
+  category: "Premium Residences",
+},
+{
+  src: "images/myarchitectai_zwh9hk2yt_sd.jpg",
+  title: "Botanical Calm Bedroom",
+  description:
+    "Soft, nature-inspired bedroom styling with botanical art and subtle cove lighting.",
+  category: "Premium Residences",
+},
+{
+  src: "images/myarchitectai_60vou6ijgf_sd.jpeg",
+  title: "Kids Room with Soft Wall Art",
+  description:
+    "Playful yet soothing kids bedroom with leaf mural, rounded forms and warm lighting.",
+  category: "Premium Residences",
+},
+{
+  src: "images/ChatGPT Image Nov 23, 2025, 10_47_27 PM.png",
+  title: "Conservator of Forest – Executive Office",
+  description:
+    "Formal office reception with stone backdrop, wooden panelling and brass accents.",
+  category: "Premium Residences",
+},
+{
+  src: "images/myarchitectai_pol5g8pgh_sd.jpg",
+  title: "Symmetry Suite – Bedroom",
+  description:
+    "Refined bedroom concept with strong symmetry, wall panelling and mood lighting.",
+  category: "Premium Residences",
+},
+{
+  src: "images/CFO OFFICE 1.jpg",
+  title: "Executive Office – Luxury Panelled Workspace",
+  description:
+    "Premium executive office featuring marble panel accents, warm wooden textures, and soft ambient lighting.",
+  category: "Premium Residences",
+},
+{
+  src: "images/AQUACITY TV UNIT VIEW.jpg",
+  title: "Modern TV Unit – Aquacity",
+  description:
+    "Sleek TV unit design with marble cladding, gold inlay detailing, and floating cabinetry.",
+  category: "Premium Residences",
+},
+{
+  src: "images/KGHDRAWINGHALL 1.jpg",
+  title: "Drawing Hall – Soft Pastel Theme",
+  description:
+    "Elegant drawing hall with pastel seating, artistic partitions and layered ceiling lighting.",
+  category: "Premium Residences",
+},
+{
+  src: "images/KGHDININGHALL 1.jpg",
+  title: "Dining Hall – Modern Minimalist Style",
+  description:
+    "Warm and contemporary dining hall featuring a marble-top dining table and ceiling cove lights.",
+  category: "Premium Residences",
+},
+{
+  src: "images/KGHDININGHALL.jpg",
+  title: "Dining Hall – Symmetric Wall Panel Design",
+  description:
+    "Balanced dining space with circular feature wall, premium lighting and sophisticated material palette.",
+  category: "Premium Residences",
+},
+{
+  src: "images/KGHTVUNIT.jpg",
+  title: "TV Unit – Marble & Metallic Trim",
+  description:
+    "Luxurious TV wall design with geometric marble patterns and subtle gold detailing.",
+  category: "Premium Residences",
+},
+{
+  src: "images/KGHDRAWINGHALL.jpg",
+  title: "Drawing Hall – Arched Niches & Accent Walls",
+  description:
+    "Living room with custom arched wall niches, patterned panels and warm ambient light layering.",
+  category: "Premium Residences",
+},
+{
+  src: "images/1p.jpg",
+  title: "Living Room – Designer Partition Feature",
+  description:
+    "A plush sectional living room with mirror-grid partition, sculpted ceiling and earthy tones.",
+  category: "Premium Residences",
+},
+
+{
+  src: "images/211.jpeg",
+  title: "Compact Modular Kitchen – Brick Tile Backsplash",
+  description:
+    "A smart and space-efficient modular kitchen featuring brick-textured backsplash, overhead glossy cabinetry, and seamless under-cabinet lighting.",
+  category: "Modular Kitchens",
+},
+{
+  src: "images/212.jpeg",
+  title: "Contemporary Modular Kitchen – Grey & White Palette",
+  description:
+    "A clean and modern kitchen design with dual-tone overhead cabinets, patterned backsplash tiles, and sleek handle-less drawers.",
+  category: "Modular Kitchens",
+},
+{
+  src: "images/213.jpeg",
+  title: "Vibrant Modular Kitchen – Aqua & White Theme",
+  description:
+    "A bright and refreshing kitchen with aqua lower cabinets, white upper storage, and a textured mosaic backsplash.",
+  category: "Modular Kitchens",
+},
+{
+  src: "images/214.jpeg",
+  title: "Modern Modular Kitchen – Navy Blue Finish",
+  description:
+    "A stylish U-shaped kitchen featuring navy blue cabinets, soft-close storage, and neutral-toned backsplash tiles.",
+  category: "Modular Kitchens",
+},
+{
+  src: "images/215.jpeg",
+  title: "Premium Modular Kitchen – Black & White Contrast",
+  description:
+    "A luxurious modern kitchen with high-gloss cabinetry, floral-cut backsplash tile design, and integrated task lighting.",
+  category: "Modular Kitchens",
+},
+
+{
+  src: "images/311.jpeg",
+  title: "Premium TV Unit With Jaali & Backlit Panel",
+  description:
+    "A modern TV wall featuring CNC jaali, fluted panels, warm LED highlights and a low storage unit—perfect for contemporary homes.",
+  category: "Premium TV Units & Ceilings",
+},
+{
+  src: "images/312.jpeg",
+  title: "Luxury Pooja Unit With Backlit Mandala",
+  description:
+    "A stunning mandir unit with wooden panelling, glass shutters, floating shelves and an illuminated mandala backdrop.",
+  category: "Premium TV Units & Ceilings",
+},
+{
+  src: "images/313.jpeg",
+  title: "Designer False Ceiling With Wooden Inlays",
+  description:
+    "A stylish false ceiling combining gypsum layers, warm cove lighting and wooden inlay highlights for visual depth.",
+  category: "Premium TV Units & Ceilings",
+},
+
+{
+  src: "images/411.jpeg",
+  title: "Gold Chevron Master Bedroom",
+  description:
+    "Luxurious master bedroom with bold chevron-patterned gold panels, upholstered headboard and warm cove lighting.",
+  category: "Premium Residences – Master Suite",
+},
+{
+  src: "images/412.jpeg",
+  title: "TV Wall & Entrance – Master Suite",
+  description:
+    "Minimal TV unit with ribbed wooden panelling, concealed lighting and coordinated door treatment leading into the master suite.",
+  category: "Premium Residences – Master Suite",
+},
+{
+  src: "images/413.jpeg",
+  title: "Upholstered Headboard Bedroom",
+  description:
+    "Elegant bedroom with a fan-shaped upholstered headboard, twin wall sconces and soft indirect ceiling lighting.",
+  category: "Premium Residences – Master Suite",
+},
+
+
+{
+  src: "images/519.jpeg",
+  title: "Backlit Designer Mandir – Contemporary Apartment",
+  description:
+    "A beautifully crafted white mandir unit with CNC-cut patterns, soft backlighting and an elevated pedestal that enhances the serenity of the space.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/520.jpeg",
+  title: "Modern Bedroom – Yellow & Grey Palette",
+  description:
+    "Vibrant contemporary bedroom featuring a tufted headboard, study unit, and mood lighting integrated in the circular false ceiling.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/521.jpeg",
+  title: "Wardrobe & Ceiling Lighting – Yellow Grey Theme",
+  description:
+    "A stylish sliding-door wardrobe with soft LED coves, balanced with a modern ceiling profile for a warm and premium look.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/511.jpeg",
+  title: "Designer False Ceiling – Ambient Cove Lighting",
+  description:
+    "Circular & curved false ceiling design with layered lighting that elevates the ambience of the modern bedroom.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/512-01.jpeg",
+  title: "Contemporary Master Bedroom – Dark Grey Interior",
+  description:
+    "A sleek master bedroom with floating shelves, soft cove lighting, and a full-height wardrobe finished in glossy grey laminates.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/513.jpeg",
+  title: "Upholstered Bed & Ceiling Mood Lighting",
+  description:
+    "Luxurious upholstered bed with premium velvet finish complemented by geometric ceiling lighting for a cozy ambience.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/514.jpeg",
+  title: "Youth Bedroom – Warm Lighting & Study Desk",
+  description:
+    "A lively youthful bedroom design combining warm lighting, a compact study desk, and custom storage modules.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/515.jpeg",
+  title: "Stylish Two-Tone Wardrobe – Yellow & Grey",
+  description:
+    "A striking wardrobe design with glossy laminates and seamless storage layout customized for compact spaces.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/516.jpeg",
+  title: "Modern Living Room – TV Unit with Clean Lines",
+  description:
+    "A modern entertainment unit featuring sleek shutters, floating shelves, and a balcony-view layout for natural lighting.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/517.jpeg",
+  title: "CNC Cut False Ceiling Panel – Premium Finish",
+  description:
+    "A decorative CNC patterned ceiling design with wooden framing that adds richness to the living and dining areas.",
+  category: "Contemporary Home Interiors",
+},
+{
+  src: "images/518.jpeg",
+  title: "Kids Bedroom – Pink & Cream Theme",
+  description:
+    "A cheerful kids' bedroom designed in soft pink and cream tones, featuring a playful sun-themed false ceiling, spacious wardrobe with circular accents, and a dedicated study niche.",
+  category: "Contemporary Home Interiors",
+},
+
+];
+
 
 function getItemsPerView() {
   // Use 1 image on small screens, 3 on larger
