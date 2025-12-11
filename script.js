@@ -538,7 +538,7 @@ function renderPortfolioPage() {
     // FIXED: close quote for class attribute and added class on img
     card.innerHTML = `
       <div class="no-download">
-        <img loading="lazy" src="${item.src}" alt="${item.title}" draggable="false" class="portfolio-img">
+        <img loading="lazy" src="${item.src}" alt="${item.title}" draggable="false">
       </div>
       <div class="portfolio-body">
         <div class="portfolio-category">${item.category}</div>
