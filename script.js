@@ -647,7 +647,7 @@ function updateModalImage(initial = false) {
 // ---------------------------
 
 // configurable long-press duration (ms)
-const LONG_PRESS_MS = 300;
+const LONG_PRESS_MS = 500;
 
 (function setupModalPauseControls() {
   const modalImg = $("modalImage");
